@@ -1,0 +1,44 @@
+nombre:Construir APK IPV
+
+en:
+  despacho de flujo de trabajo:
+
+empleos:
+  construir:
+    corre:ubuntu-latest
+    pasos:
+      -nombre:Descargar proyecto
+        usos:acciones/checkout@v4
+
+      -nombre:Configurar Node.js
+        usos:acciones/configuración-nodo@v4
+        con:
+          versión del nodo:20
+
+      -nombre:Configurar Java
+        usos:acciones/configuración-java@v4
+        con:
+          distribución:temurin
+          versión de java:21
+
+      -nombre:Instalar dependencias
+        correr:npm install
+
+      -nombre:Crear proyecto Android
+        correr:npx cap agregar android
+
+      -nombre:Sincronizar aplicación
+        correr:Sincronización de la capacidad npx para Android
+
+      -nombre:Compilador APK
+        correr:|
+          CD Android
+          chmod +x gradlew
+          ./gradlew assembleDebug
+
+      -nombre:Publicar APK
+        usos:acciones/cargar-artefacto@v4
+        con:
+          nombre:IPV-APK
+          camino:android/app/build/outputs/apk/debug/app-debug.apk
+          si no se encuentran archivos:error
