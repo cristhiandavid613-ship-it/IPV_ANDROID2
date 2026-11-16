@@ -1,0 +1,11 @@
+{
+  "name": "IPV - Inventario Punto de Venta",
+  "short_name": "IPV",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f8fafc",
+  "theme_color": "#0f766e",
+  "description": "Inventario, ventas y cuadre diario de efectivo."
+}
